@@ -1,7 +1,9 @@
-require './person'
+require_relative './person'
 
 class Teacher < Person
-  def initialize(age, specialization, name = 'Unknown', parent_permission: true)
+  # rubocop:disable Style/OptionalBooleanParameter
+  def initialize(age, specialization, name = 'Unknown', parent_permission = true)
+    # rubocop:enable Style/OptionalBooleanParameter
     super(age, name, parent_permission)
     @specialization = specialization
   end

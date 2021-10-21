@@ -4,7 +4,9 @@ class Person
   attr_accessor :name, :age
   attr_reader :id, :rentals
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  # rubocop:disable Style/OptionalBooleanParameter
+  def initialize(age, name = 'Unknown', parent_permission = true)
+    # rubocop:enable Style/OptionalBooleanParameter
     @id = Random.rand(1..1000)
     @corrector = Corrector.new
     @age = age
