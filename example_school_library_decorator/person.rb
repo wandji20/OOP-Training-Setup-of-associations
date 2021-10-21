@@ -1,8 +1,8 @@
 require_relative './corrector'
 
 class Person
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
+  attr_accessor :name, :age, :rentals
+  attr_reader :id
 
   # rubocop:disable Style/OptionalBooleanParameter
   def initialize(age, name = 'Unknown', parent_permission = true)
@@ -14,6 +14,11 @@ class Person
     @parent_permission = parent_permission
     @rentals = []
   end
+
+  def add_rental(book, date)
+    Rental.new(date, book, self)
+  end
+
 
   def can_use_services?
     @parent_permission || of_age?
